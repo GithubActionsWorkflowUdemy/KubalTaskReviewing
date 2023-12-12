@@ -58,6 +58,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Run First Workflow
         uses: ./.github/workflows/sample_workflow.yaml
+        with:
+            input_arg: "Hello, world!"
       - name: After Running the First Workflow
         run: echo "End of Original Workflow"
 

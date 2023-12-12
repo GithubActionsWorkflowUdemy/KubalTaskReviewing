@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sample Steps
-        run: echo "Running Nested Workflow"
+        run: echo "The input argument is ${{ inputs.input_arg }}"

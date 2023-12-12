@@ -94,7 +94,7 @@ jobs:
       - name: Write buld in package
         run: |
           python add_build.py
-          npm intall
+          npm install
 
       - name: Build Project
         run: npm run build

@@ -53,6 +53,7 @@ jobs:
 
 #   Nested_Generic_Workflow:
 #     runs-on: ubuntu-latest
+#     uses: ./.github/workflows/sample_workflow.yaml
 #     steps:
 #       - name: Checkout code
 #         uses: actions/checkout@v2
@@ -63,67 +64,67 @@ jobs:
 #       - name: After Running the First Workflow
 #         run: echo "End of Original Workflow"
 
-  Custom_Python_Action:
-    runs-on: ubuntu-latest    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.12
-      - name: Run Custom Action
-        run: GithubActionsWorkflowUdemy/Act1_Custom_Python@v2
-
-
-#   Exception_Handling_Build:
-#     runs-on: ubuntu-latest
+#   Custom_Python_Action:
+#     runs-on: ubuntu-latest    
 #     steps:
 #       - name: Checkout code
-#         uses: actions/checkout
-
+#         uses: actions/checkout@v2
 #       - name: Set up Python
 #         uses: actions/setup-python@v2
 #         with:
 #           python-version: 3.12
+#       - name: Run Custom Action
+#         run: GithubActionsWorkflowUdemy/Act1_Custom_Python@v2
 
-#       - name: Initiate npm
-#         run: npm init -y
 
-#       - name: Write buld in package
-#         run: |
-#           python add_build.py
-#           npm intall
+  Exception_Handling_Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout
 
-#       - name: Build Project
-#         run: npm run build
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
 
-#       - name: Test project
-#         run: npm test
+      - name: Initiate npm
+        run: npm init -y
 
-#   Exception_Handling_Deploy_Success:
-#     runs-on: ubuntu-latest
-#     needs: Exception_Handling_Build
-#     if: ${{ success() && github.ref == 'efs/heads/main' }}
-#     steps:
-#       - name: Deploy to production
-#         run: |
-#           echo "Deploy to production"
-#       - name: Deploy to staging
-#         run: |
-#           echo "Deploy to staging"
+      - name: Write buld in package
+        run: |
+          python add_build.py
+          npm intall
 
-#   Exception_Handling_Deploy_Failure:
-#     runs-on: ubuntu-latest
-#     needs: Exception_Handling_Build
-#     if: ${{ failure() || github.ref!= 'efs/heads/main' }}
-#     steps:
-#       - name: Deploy to production (failure)
-#         run: |
-#           echo "Deploy to production failed"
-#       - name: Deploy to staging (failure)
-#         run: |
-#           echo "Deploy to staging failed"
+      - name: Build Project
+        run: npm run build
+
+      - name: Test project
+        run: npm test
+
+  Exception_Handling_Deploy_Success:
+    runs-on: ubuntu-latest
+    needs: Exception_Handling_Build
+    if: ${{ success() && github.ref == 'efs/heads/main' }}
+    steps:
+      - name: Deploy to production
+        run: |
+          echo "Deploy to production"
+      - name: Deploy to staging
+        run: |
+          echo "Deploy to staging"
+
+  Exception_Handling_Deploy_Failure:
+    runs-on: ubuntu-latest
+    needs: Exception_Handling_Build
+    if: ${{ failure() || github.ref!= 'efs/heads/main' }}
+    steps:
+      - name: Deploy to production (failure)
+        run: |
+          echo "Deploy to production failed"
+      - name: Deploy to staging (failure)
+        run: |
+          echo "Deploy to staging failed"
 
 
 

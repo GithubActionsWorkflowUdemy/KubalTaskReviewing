@@ -77,11 +77,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout
-      - name: Install dependencies
-        run: npm install
-      - name: Build project
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Initiate npm
+        run: npm init -y
+
+      - name: Write buld in package
+        run: |
+          python add_build.py
+          npm intall
+
+      - name: Build Project
         run: npm run build
+
       - name: Test project
         run: npm test
 

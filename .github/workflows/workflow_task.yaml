@@ -51,11 +51,11 @@ jobs:
         run: |
           echo "Step 1: ${{ env.MY_GLOBAL_VARIABLE }}"
 
-  Nested_Generric_Workflow:
+  Nested_Generic_Workflow:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout
+        uses: actions/checkout@v2
       - name: Run First Workflow
         uses: ./.github/workflows/sample_workflow.yaml
       - name: After Running the First Workflow

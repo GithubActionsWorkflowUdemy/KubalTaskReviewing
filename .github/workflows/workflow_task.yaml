@@ -51,29 +51,29 @@ jobs:
         run: |
           echo "Step 1: ${{ env.MY_GLOBAL_VARIABLE }}"
 
-  Nested_Generic_Workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Run First Workflow
-        uses: ./.github/workflows/sample_workflow.yaml
-        with:
-          input_arg: "Hello, world!"
-      - name: After Running the First Workflow
-        run: echo "End of Original Workflow"
-
-#   Custom_Python_Action:
-#     runs-on: ubuntu-latest    
+#   Nested_Generic_Workflow:
+#     runs-on: ubuntu-latest
 #     steps:
 #       - name: Checkout code
 #         uses: actions/checkout@v2
-#       - name: Set up Python
-#         uses: actions/setup-python@v2
+#       - name: Run First Workflow
+#         uses: ./.github/workflows/sample_workflow.yaml
 #         with:
-#           python-version: 3.12
-#       - name: Run Custom Action
-#         run: GithubActionsWorkflowUdemy/Action_1_Custom_Action_Using_Python@v2
+#           input_arg: "Hello, world!"
+#       - name: After Running the First Workflow
+#         run: echo "End of Original Workflow"
+
+  Custom_Python_Action:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+      - name: Run Custom Action
+        run: GithubActionsWorkflowUdemy/Act1_Custom_Python@v2
 
 
 #   Exception_Handling_Build:

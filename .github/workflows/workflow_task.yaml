@@ -65,15 +65,15 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
       - name: Checkout code
-        uses: actions/checkout
+        uses: actions/checkout@v2
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.12
       - name: Run Custom Action
-        uses: GithubActionsWorkflowUdemy/Action_1_Custom_Action_Using_Python
-
-
+        uses: GithubActionsWorkflowUdemy/Action_1_Custom_Action_Using_Python@v2
+        
+        
 
 
 

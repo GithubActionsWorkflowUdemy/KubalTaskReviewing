@@ -42,6 +42,16 @@ jobs:
           echo "Environmental Local String: ${{ env.ENV_LOCAL_STRING }}"
           echo "Environmental Local Integer: ${{ env.ENV_LOCAL_INTEGER }}"
 
+  Global_Variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Global Variable
+        run: echo "MY_GLOBAL_VARIABLE=Hello, Ramesh!" >> $GITHUB_ENV
+      - name: Use Global Variable in Step 1
+        run: |
+          echo "Step 1: ${{ env.MY_GLOBAL_VARIABLE }}"
+          
+
 
 
 

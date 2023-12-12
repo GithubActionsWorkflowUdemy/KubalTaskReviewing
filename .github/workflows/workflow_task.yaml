@@ -37,10 +37,10 @@ jobs:
         run: |
           NORMAL_STRING="Hello, World"
           NORMAL_INTEGER=4589
-          echo "Normal Local String: $NORMAL_LOCAL_STRING"
-          echo "Normal Local Integer: $NORMAL_LOCAL_INTEGER"
-          echo "Environmental Local String: ${{ env.ENV_LOCAL_STRING }}"
-          echo "Environmental Local Integer: ${{ env.ENV_LOCAL_INTEGER }}"
+          echo "Normal Local String: $NORMAL_STRING"
+          echo "Normal Local Integer: $NORMAL_INTEGER"
+          echo "Environmental Local String: ${{ env.ENV_STRING }}"
+          echo "Environmental Local Integer: ${{ env.ENV_INTEGER }}"
 
   Global_Variables:
     runs-on: ubuntu-latest

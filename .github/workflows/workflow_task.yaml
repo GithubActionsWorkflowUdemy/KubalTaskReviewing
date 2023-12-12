@@ -76,8 +76,8 @@ jobs:
   Exception_Handling_Build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout
+    #   - name: Checkout code
+    #     uses: actions/checkout
 
       - name: Set up Python
         uses: actions/setup-python@v2

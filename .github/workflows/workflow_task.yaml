@@ -105,7 +105,7 @@ jobs:
   Exception_Handling_Deploy_Success:
     runs-on: ubuntu-latest
     needs: Exception_Handling_Build
-    if: ${{ success() && github.ref == 'efs/heads/main' }}
+    if: ${{ success() && github.ref == 'refs/heads/main' }}
     steps:
       - name: Deploy to production
         run: |
@@ -117,7 +117,7 @@ jobs:
   Exception_Handling_Deploy_Failure:
     runs-on: ubuntu-latest
     needs: Exception_Handling_Build
-    if: ${{ failure() || github.ref!= 'efs/heads/main' }}
+    if: ${{ failure() || github.ref!= 'refs/heads/main' }}
     steps:
       - name: Deploy to production (failure)
         run: |

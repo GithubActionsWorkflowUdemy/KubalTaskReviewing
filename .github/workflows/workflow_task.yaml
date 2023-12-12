@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  check_conditions:
+  Nested_If_Else:
     runs-on: ubuntu-latest
     steps:
       - name: Check conditions
@@ -20,4 +20,50 @@ jobs:
           else
             echo "Not a push event."
           fi
-          
+
+  Secret_Variable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Secret Variable
+        run: echo "My secret token is ${{ secrets.MY_SECRET_TOKEN }}"
+
+  Local_Variables:
+    runs-on: ubuntu-latest
+    env:
+      ENV_STRING: "Hello, Ramesh!"
+      ENV_INTEGER: 145
+    steps:
+      - name: Set Local Variable
+        run: |
+          NORMAL_STRING="Hello, World"
+          NORMAL_INTEGER=4589
+          echo "Normal Local String: $NORMAL_LOCAL_STRING"
+          echo "Normal Local Integer: $NORMAL_LOCAL_INTEGER"
+          echo "Environmental Local String: ${{ env.ENV_LOCAL_STRING }}"
+          echo "Environmental Local Integer: ${{ env.ENV_LOCAL_INTEGER }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
